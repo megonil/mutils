@@ -1,4 +1,5 @@
 #include <linux/limits.h>
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,6 +40,7 @@ char initial_cwd[PATH_MAX];
 int
 main(int argc, char* argv[])
 {
+	setlocale(LC_ALL, "");
 	if (getcwd(initial_cwd, sizeof(initial_cwd)) == NULL)
 	{
 		println_exit(1, "error: cannot get cwd");
